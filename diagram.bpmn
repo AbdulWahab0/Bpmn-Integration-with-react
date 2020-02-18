@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0wcv2vk" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="6.3.0">
+  <bpmn:process id="Process_1jomh3t" isExecutable="false">
+    <bpmn:exclusiveGateway id="Gateway_0w3zdbc">
+      <bpmn:outgoing>Flow_17zslb7</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0rko84z</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0k6i4f1</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="Activity_113ap93" name="Start">
+      <bpmn:incoming>Flow_17zslb7</bpmn:incoming>
+      <bpmn:incoming>Flow_0jjyyr7</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_17zslb7" sourceRef="Gateway_0w3zdbc" targetRef="Activity_113ap93" />
+    <bpmn:intermediateThrowEvent id="Event_05iobc0">
+      <bpmn:incoming>Flow_0rko84z</bpmn:incoming>
+      <bpmn:outgoing>Flow_0qmgb06</bpmn:outgoing>
+    </bpmn:intermediateThrowEvent>
+    <bpmn:sequenceFlow id="Flow_0rko84z" name="Yes" sourceRef="Gateway_0w3zdbc" targetRef="Event_05iobc0" />
+    <bpmn:task id="Activity_19w6r8o" name="End">
+      <bpmn:incoming>Flow_0qmgb06</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0qmgb06" sourceRef="Event_05iobc0" targetRef="Activity_19w6r8o" />
+    <bpmn:task id="Activity_0a72tzp" name="Restart">
+      <bpmn:incoming>Flow_0k6i4f1</bpmn:incoming>
+      <bpmn:outgoing>Flow_0jjyyr7</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_0k6i4f1" name="No" sourceRef="Gateway_0w3zdbc" targetRef="Activity_0a72tzp" />
+    <bpmn:sequenceFlow id="Flow_0jjyyr7" sourceRef="Activity_0a72tzp" targetRef="Activity_113ap93" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1jomh3t">
+      <bpmndi:BPMNShape id="Gateway_0w3zdbc_di" bpmnElement="Gateway_0w3zdbc" isMarkerVisible="true">
+        <dc:Bounds x="185" y="245" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_113ap93_di" bpmnElement="Activity_113ap93">
+        <dc:Bounds x="160" y="120" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_17zslb7_di" bpmnElement="Flow_17zslb7">
+        <di:waypoint x="210" y="245" />
+        <di:waypoint x="210" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_05iobc0_di" bpmnElement="Event_05iobc0">
+        <dc:Bounds x="192" y="352" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0rko84z_di" bpmnElement="Flow_0rko84z">
+        <di:waypoint x="210" y="295" />
+        <di:waypoint x="210" y="352" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="216" y="321" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Activity_19w6r8o_di" bpmnElement="Activity_19w6r8o">
+        <dc:Bounds x="160" y="430" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0qmgb06_di" bpmnElement="Flow_0qmgb06">
+        <di:waypoint x="210" y="388" />
+        <di:waypoint x="210" y="430" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Activity_0a72tzp_di" bpmnElement="Activity_0a72tzp">
+        <dc:Bounds x="370" y="230" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0k6i4f1_di" bpmnElement="Flow_0k6i4f1">
+        <di:waypoint x="235" y="270" />
+        <di:waypoint x="370" y="270" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="268" y="252" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0jjyyr7_di" bpmnElement="Flow_0jjyyr7">
+        <di:waypoint x="370" y="270" />
+        <di:waypoint x="315" y="270" />
+        <di:waypoint x="315" y="160" />
+        <di:waypoint x="260" y="160" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
